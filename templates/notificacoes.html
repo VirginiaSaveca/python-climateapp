@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações Climáticas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Alertas Climáticos</h1>
+
+        <!-- Formulário para selecionar a cidade -->
+        <form method="POST">
+            <label for="cidade">Selecione uma cidade:</label>
+            <select name="cidade" id="cidade">
+                {% for cidade in cidades %}
+                <option value="{{ cidade }}" {% if cidade == cidade_selecionada %}selected{% endif %}>{{ cidade }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Verificar</button>
+        </form>
+
+        <div class="alerts-container">
+            {% if alerts %}
+                <h2>Notificações para {{ cidade_selecionada }}</h2>
+                <ul class="alerts-list">
+                    {% for alerta in alerts %}
+                    <li class="alert-item">{{ alerta }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Sem notificações disponíveis para esta cidade.</p>
+            {% endif %}
+        </div>
+
+        <footer>
+            <a href="/notificacoes">Ver alertas de outras cidades</a>
+        </footer>
+    </div>
+
+    <!-- Script para converter os alertas em áudio -->
+    <script>
+        // Função para falar os alertas em voz alta
+        function falarTexto(texto) {
+            const synth = window.speechSynthesis;
+            if (!synth) {
+                console.error("API de síntese de fala não suportada neste navegador.");
+                return;
+            }
+            const utterance = new SpeechSynthesisUtterance(texto);
+            utterance.lang = 'pt-PT'; // Ajustar para o português de Portugal
+            utterance.rate = 1; // Velocidade da fala
+            synth.speak(utterance);
+        }
+
+        // Falar todos os alertas exibidos na página
+        window.onload = function() {
+            const alerts = {{ alerts|tojson }};
+            if (alerts.length > 0) {
+                const textoCompleto = alerts.join('. ');
+                falarTexto(textoCompleto);
+            }
+        };
+    </script>
+
+</body>
+</html>
+

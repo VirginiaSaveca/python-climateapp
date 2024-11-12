@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Mudanças Climáticas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Menu no topo com ícones -->
+    <header class="menu-topo">
+        <div class="caixa-menu">
+            <nav>
+                <a href="/clima" class="button"> Clima</a>
+            <a href="/dicas" class="button">Dicas </a>
+            <a href="/notificacoes" class="btn">Notificações</a>
+            <a href="/community" class="button">Comunidade</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção principal com imagem e introdução -->
+    <main>
+        <div class="caixa-conteudo">
+            <section class="intro">
+                <h2>Bem-vindo ao Aplicativo de Mudanças Climáticas</h2>
+                <p>Explore informações atualizadas sobre o clima, dicas sustentáveis, previsões, e participe da nossa comunidade para aprender mais sobre como contribuir para um planeta mais saudável.</p>
+                
+                <!-- Imagem principal -->
+                <div class="imagem-principal">
+                    <img src="{{ url_for('static', filename='pp.jpg') }}" alt="Imagem de Mudanças Climáticas">
+                </div>
+            </section>
+
+            <!-- Seção sobre mudanças climáticas -->
+            <section id="sobre-mudancas-climaticas">
+                <h2>O que são Mudanças Climáticas?</h2>
+                <p>As mudanças climáticas referem-se às variações de longo prazo nas temperaturas e padrões climáticos. Embora essas mudanças sejam naturais, as atividades humanas, como a queima de combustíveis fósseis, têm acelerado essas mudanças, resultando em consequências significativas para o planeta.</p>
+                
+                <h3>Como o Aplicativo Pode Ajudar</h3>
+                <ul>
+                    <li>Oferece atualizações climáticas em tempo real.</li>
+                    <li>Fornece dicas para ações sustentáveis diárias.</li>
+                    <li>Ajuda a monitorar e reduzir sua pegada de carbono.</li>
+                    <li>Conecta você com uma comunidade engajada em práticas ecológicas.</li>
+                </ul>
+                <a href="/clima" class="button" style="background-color: #2980b9; color: white; padding: 10px 20px; text-decoration: none; font-size: 1em; font-weight: bold; border-radius: 5px; transition: background-color 0.3s;">Veja o Clima Atual da sua cidade</a>
+            </section>
+        </div>
+    </main>
+
+    <!-- CSS Inline ou em arquivo separado para estilização -->
+    <style>
+        /* Estilização do menu de ícones */
+        .menu-topo {
+            background-color: #3498db; /* Fundo azul */
+            padding: 5px 0; /* Reduzido para diminuir a altura do menu */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            width: 100%; /* Corrigido para 100% */
+            z-index: 1000;
+            margin-bottom: 5px; /* Margem abaixo do menu para separar do conteúdo */
+        }
+
+        .caixa-menu {
+            padding: 0; /* Remove o espaçamento interno */
+        }
+
+        .menu-topo nav {
+            display: flex;
+            gap: 5px; /* Reduzido para aumentar a densidade */
+        }
+
+        .menu-topo a {
+            text-decoration: none;
+            color: white; /* Mantém o texto em branco */
+            padding: 8px 12px; /* Ajusta o espaçamento dos botões */
+            border-radius: 5px; /* Borda arredondada nos botões */
+        }
+
+        .menu-topo a:hover {
+            background-color: #1f618d; /* Cor mais escura ao passar o mouse */
+        }
+
+        /* Estilização do conteúdo principal */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 80px; /* Para compensar o header fixo */
+            background-color: #f4f4f9;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Centraliza a caixa no meio da página */
+        }
+
+        .caixa-conteudo {
+            background-color: white; /* Cor de fundo da caixa */
+            border: 1px solid #ccc; /* Bordas da caixa */
+            border-radius: 8px; /* Bordas arredondadas */
+            padding: 20px; /* Espaçamento interno */
+            max-width: 800px; /* Largura máxima da caixa */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+        }
+
+        h2, h3 {
+            color: #3498db;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            color: #34495e;
+        }
+
+        .imagem-principal {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .imagem-principal img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #sobre-mudancas-climaticas {
+            margin-top: 40px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #34495e;
+        }
+    </style>
+</body>
+</html>
+
+
+

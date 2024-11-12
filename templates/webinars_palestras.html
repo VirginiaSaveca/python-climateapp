@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinars e Palestras</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Estilos para o header e menu */
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        header nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Estilos para o conteúdo principal */
+        .caixa-conteudo {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #0044cc;
+            text-align: center;
+        }
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .video-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0044cc;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .video-container a:hover {
+            background-color: #003399;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header com o menu de navegação -->
+    <header>
+        <nav>
+            <a href="/clima" class="button"> Clima</a>
+            <a href="/dicas" class="button">Dicas </a>
+            <a href="/notificacoes" class="button">Notificações</a>
+            <a href="/community" class="button">Comunidade</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="caixa-conteudo">
+        <h1>Webinars e Palestras</h1>
+        <p>Participe de webinars e palestras sobre questões ambientais, com a presença de especialistas discutindo os desafios e soluções para o futuro.</p>
+        
+        <p>Webinar Além da Saúde - 1ª palestra: Superagui: as questões ambientais na redução de danos à saúde</p>
+
+        <!-- Botão para o vídeo do YouTube -->
+        <div class="video-container">
+            <a href="https://www.youtube.com/watch?v=BYmaZEWM2uA" target="_blank">Assista ao webinar no YouTube</a>
+        </div>
+    </main>
+
+</body>
+</html>
+
+
+
+

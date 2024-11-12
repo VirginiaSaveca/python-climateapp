@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima em Moçambique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #3498db;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        nav .button {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            transition: background-color 0.3s;
+            font-size: 1em;
+        }
+        nav .button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select, form button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .return-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .return-button-container button {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .return-button-container button:hover {
+            background-color: #2980b9;
+        }
+        /* Estilos responsivos */
+        @media (max-width: 600px) {
+            header {
+                padding: 5px; /* Reduz o espaço em volta do menu */
+            }
+            nav .button {
+                padding: 8px 12px; /* Diminui o tamanho dos botões */
+                font-size: 0.9em; /* Reduz o tamanho da fonte dos botões */
+            }
+            body {
+                padding: 10px; /* Reduz o espaço em volta do conteúdo principal */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="/clima" class="button"> Clima</a>
+            <a href="/dicas" class="button">Dicas </a>
+            <a href="/notificacoes" class="button">Notificações</a>
+            <a href="/community" class="button">Comunidade</a>
+        </nav>
+    </header>
+
+    <h1>Selecione sua Cidade</h1>
+    <form method="POST">
+        <select name="cidade">
+            {% for cidade in cidades %}
+                <option value="{{ cidade }}">{{ cidade }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Ver Clima</button>
+    </form>
+
+    <div class="return-button-container">
+        <a href="/" style="text-decoration: none;">
+            <button>Voltar à Página Inicial</button>
+        </a>
+    </div>
+
+    {% if clima_info %}
+        <h2>Clima Atual em {{ cidade }}</h2>
+        <p>Temperatura: {{ clima_info.temperatura }}°C</p>
+        <p>Umidade: {{ clima_info.umidade }}%</p>
+        <p>Descrição: {{ clima_info.descricao }}</p>
+        
+        <h3>Previsão para os Próximos 5 Dias</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Temperatura (°C)</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dia in previsao %}
+                    <tr>
+                        <td>{{ dia.data.split(" ")[0] }}</td>
+                        <td>{{ dia.data.split(" ")[1] }}</td>
+                        <td>{{ dia.temperatura }}°C</td>
+                        <td>{{ dia.descricao | title }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Selecione uma cidade para ver as informações do clima.</p>
+    {% endif %}
+</body>
+</html>

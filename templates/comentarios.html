@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Comentários</title>
+</head>
+<body>
+    <h2>{{ post[2] }} - por {{ post[1] }} em {{ post[4] }}</h2>
+    <p>{{ post[3] }}</p>
+    <hr>
+
+    <!-- Formulário para adicionar comentário -->
+    <form method="POST">
+        <input type="text" name="usuario" placeholder="Seu nome" required><br>
+        <textarea name="conteudo" placeholder="Escreva seu comentário" required></textarea><br>
+        <button type="submit">Comentar</button>
+    </form>
+
+    <hr>
+
+    <!-- Listar comentários -->
+    {% for comentario in comentarios %}
+    <div>
+        <p>{{ comentario[2] }} - por {{ comentario[0] }}</p>
+        <p>{{ comentario[1] }}</p>
+        <hr>
+    </div>
+    {% endfor %}
+</body>
+</html>

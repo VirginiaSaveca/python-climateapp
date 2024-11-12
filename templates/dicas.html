@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicas Sustentáveis</title>
+    <style>
+        /* Estilização do cabeçalho (header) */
+        header {
+            background-color: #3498db; /* Azul do fundo */
+            padding: 10px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Definir o layout do menu para que os botões fiquem em linha */
+        header nav {
+            display: flex;
+            justify-content: center; /* Centraliza os itens no menu */
+            gap: 15px; /* Espaço entre os botões */
+        }
+
+        /* Estilo dos links no menu */
+        header nav a {
+            color: #fff; /* Cor dos links (botões) no menu */
+            text-decoration: none; /* Remover sublinhado */
+            padding: 10px 20px;
+            background-color: #3498db; /* Cor de fundo do botão */
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease; /* Transição suave para o efeito hover */
+        }
+
+        /* Efeito de hover nos botões do menu */
+        header nav a:hover {
+            background-color: #2980b9; /* Cor mais escura no hover */
+        }
+
+        /* Estilização da caixa principal */
+        .caixa-conteudo {
+            background-color: #f4f9ff; /* Fundo suave para destaque */
+            border: 2px solid #3498db; /* Borda azul */
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo do título */
+        h1 {
+            color: #3498db;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para cada seção de dica */
+        .dica {
+            background-color: #ffffff; /* Fundo branco para contraste */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo dos títulos das dicas */
+        .dica h2 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo para os parágrafos das dicas */
+        .dica p {
+            color: #34495e;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo para os botões */
+        .dica button {
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Efeito hover nos botões */
+        .dica button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/clima" class="button">Clima</a>
+            <a href="/dicas" class="button">Dicas</a>
+            <a href="/notificacoes" class="button">Notificações</a>
+            <a href="/community" class="button">Comunidade</a>
+        </nav>
+    </header>
+
+    <main class="caixa-conteudo">
+        <h1>Dicas Sustentáveis</h1>
+        
+        <!-- Dicas Diárias -->
+        <section class="dica">
+            <h2>Dicas Diárias</h2>
+            <p>Sugestões práticas para o dia a dia.</p>
+            <button onclick="window.location.href='/dicas-diarias'">Leia Mais</button>
+        </section>
+
+        <!-- Artigos Temáticos -->
+        <section class="dica">
+            <h2>Artigos Temáticos</h2>
+            <p>Conteúdos aprofundados sobre temas específicos.</p>
+            <button onclick="window.location.href='/artigos-tematicos'">Leia Mais</button>
+        </section>
+
+        <!-- Receitas Sustentáveis -->
+        <section class="dica">
+            <h2>Receitas Sustentáveis</h2>
+            <p>Receitas com ingredientes locais e sazonais.</p>
+            <button onclick="window.location.href='/receitas-sustentaveis'">Leia Mais</button>
+        </section>
+
+        <!-- Artigos Educativos -->
+        <section class="dica">
+            <h2>Artigos Educativos</h2>
+            <p>Textos sobre mudanças climáticas e biodiversidade.</p>
+            <button onclick="window.location.href='/artigos-educativos'">Leia Mais</button>
+        </section>
+
+        <!-- Vídeos Informativos -->
+        <section class="dica">
+            <h2>Vídeos Informativos</h2>
+            <p>Conteúdos visuais como documentários e tutoriais.</p>
+            <button onclick="window.location.href='/videos-informativos'">Assista</button>
+        </section>
+
+        <!-- Webinars e Palestras -->
+        <section class="dica">
+            <h2>Webinars e Palestras</h2>
+            <p>Eventos ao vivo ou gravados com especialistas.</p>
+            <button onclick="window.location.href='/webinars-palestras'">Participar</button>
+        </section>
+    </main>
+</body>
+</html>
+
+ 
